@@ -18,11 +18,7 @@ exp.use(
 
 const app = createServer(exp);
 
-const io = new Server(app, {
-  cors: {
-     origin:'*'
-  },
-});
+const io = new Server(app);
 
 exp.use(cookiePaser());
 exp.use("/api/v1/user", UserRouter);
