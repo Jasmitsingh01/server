@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import GuestUser from "../model/GusetUser.js";
 const authGuestUser = RequestHandler(async (req, res, next) => {
   try {
+
     const token =
       req?.cookies?.access_token ||
       req?.headers?.authorization?.split("Bearer ")[1];

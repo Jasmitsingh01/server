@@ -5,7 +5,7 @@ import Jwt from 'jsonwebtoken'
 const UserSchema = new mongoose.Schema(
   {
     name: String,
-    avtar: { type: String },
+    avtar: { type: String ,default: " Please upload our Avtar"},
     email: { type: String, unique: true },
     contact:{type:String, default:'Please Enter Your Contact Number'},
     location:{type:String, default:'Please Enter Your location Address'},

@@ -4,7 +4,7 @@ import error from "../../utils/Error.js";
 
 const GetUserDeatils=RequestHandler(async (req, res) => {
     try {
-        const user= req?.guestuser
+        const user= req?.user
        if(!user){
         throw new error("Failed to find User",404)
 

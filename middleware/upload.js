@@ -3,7 +3,7 @@ import path from "path";
 
 const StorageOption=multer.diskStorage({
   destination(req, file, callback) {
-     callback(null, path.join(__dirname,'../public/')) 
+     callback(null, path.join('./public/')) 
   },
   filename(req, file, callback) {
     callback(null,Date.now()+file.originalname)
@@ -14,6 +14,9 @@ const StorageOption=multer.diskStorage({
       file.mimetype === 'image/jpeg' || // Allow JPEG
       file.mimetype === 'image/png' ||  // Allow PNG
       file.mimetype === 'image/gif'     // Allow GIF
+      ||
+      file.mimetype === 'image/webp'     // Allow webpg
+
     ) {
       cb(null, true); // Accept the file
     } else {

@@ -5,7 +5,9 @@ import RequestHandler from "../../utils/RequestHandler.js";
 
 const GetGuestUserDetail=RequestHandler(async (req, res) => {
     try {
+
        const guestuser= req?.guestuser
+
        if(!guestuser){
         throw new error("Failed to find User",404)
 

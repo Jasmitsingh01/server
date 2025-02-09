@@ -7,7 +7,7 @@ import Event from '../../model/Event.js'
 const GetallEvent=RequestHandler(async (req, res) => {
     try {
         const events = await Event.find();
-        if(events.length>0){
+        if(events?.length <0){
             throw new error('No Event is Founded',404)
         }
         ResponseHandler(res,events,200)

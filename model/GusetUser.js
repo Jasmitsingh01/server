@@ -3,7 +3,7 @@ import Bycrpt from 'bcryptjs'
 import Jwt from 'jsonwebtoken'
 const GuestUserSchema = new mongoose.Schema({
   name: String,
-  avtar: { type: String },
+  avtar: { type: String,default: " Please upload our Avtar" },
   email: { type: String, unique: true },
   contact:{type:String, default:'Please Enter Your Contact Number'},
   location:{type:String, default:'Please Enter Your location Address'},
@@ -22,7 +22,14 @@ GuestUserSchema.pre("save", async function (next) {
 GuestUserSchema.methods.isPasswordMatch = async function (password) {
   return await Bycrpt.compare(password, this?.password);
 };
-
+GuestUserSchema.pre('find', function(next) {
+  this.select('-password');
+  next();
+});
+GuestUserSchema.pre('findById', function(next) {
+  this.select('-password');
+  next();
+});
 GuestUserSchema.methods.generateAccessToken = function () {
   return Jwt.sign(
     { _id: this._id },
