@@ -19,7 +19,7 @@ exp.use(
 const app = createServer(exp,{
   cors:{
     origin:["https://event-management-tau-beryl.vercel.app"],
-    ethods: ["GET", "POST"] 
+    methods: ["GET", "POST"] 
   }
 });
 
