@@ -26,11 +26,11 @@ const Guestlogin = RequestHandler(async (req, res) => {
     }
 
     res.cookie("access_token", access_token, {
-      httpOnly: true,
+      httpOnly: true,            
     });
 
     res.cookie("refresh_token", refresh_token, {
-      httpOnly: true,
+      httpOnly: true,            
     });
     ResponseHandler(
       res,

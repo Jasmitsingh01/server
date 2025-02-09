@@ -25,11 +25,11 @@ const GuestResgister = RequestHandler(async (req, res) => {
     const {access_token,refresh_token}=token
 
     res.cookie("access_token", access_token, {
-      httpOnly: true,
+      httpOnly: true,            
     });
 
     res.cookie("refresh_token", refresh_token, {
-      httpOnly: true,
+      httpOnly: true,            
     });
 
     ResponseHandler(
