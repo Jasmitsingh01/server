@@ -10,7 +10,7 @@ const exp = express();
 exp.use(express.json());
 exp.use(
   cors({
-    origin: ["https://event-management-c9he281ki-jasmitsingh01s-projects.vercel.app","https://event-management-git-main-jasmitsingh01s-projects.vercel.app","https://event-management-tau-beryl.vercel.app"],
+    origin: ["http://localhost:5173","https://event-management-c9he281ki-jasmitsingh01s-projects.vercel.app","https://event-management-git-main-jasmitsingh01s-projects.vercel.app","https://event-management-tau-beryl.vercel.app"],
     credentials: true,
   })
 );
@@ -18,7 +18,11 @@ exp.use(
 
 const app = createServer(exp);
 
-const io = new Server(app);
+const io = new Server(app, {
+  cors: {
+     origin:'*'
+  },
+});
 
 exp.use(cookiePaser());
 exp.use("/api/v1/user", UserRouter);
