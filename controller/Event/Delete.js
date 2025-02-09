@@ -20,8 +20,7 @@ const DeleteEvent = RequestHandler(async (req, res) => {
     broadcastToAll('deletEvent',"")
     ResponseHandler(res, { message: "Event deleted" }, 204);
   } catch (error) {
-    console.log(error?.message, error?.statusCode || 500);
-    ResponseHandler(res, { message: error?.message }, error?.statusCode || 500);
+    console.log(error );    ResponseHandler(res, { message: error?.message }, error?.statusCode || 500);
   }
 });
 

@@ -27,7 +27,7 @@ const CreateEvent = RequestHandler(async (req, res) => {
     broadcastToAll('createEvent','')
     ResponseHandler(res, event, 201);
   } catch (error) {
-    console.log(error?.message, error?.statusCode || 500);
+    console.log(error );
     ResponseHandler(res, { message: error?.message }, error?.statusCode || 500);
   }
 });

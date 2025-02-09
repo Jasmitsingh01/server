@@ -22,6 +22,7 @@ const authUser = RequestHandler(async (req, res, next) => {
         next();
 
     } catch (error) {
+        console.log(error)
         if (error?.message === 'jwt expired') {
 
             ResponseHandler(res, null, 401)

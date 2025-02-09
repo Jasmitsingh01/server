@@ -12,8 +12,7 @@ const GetallEvent=RequestHandler(async (req, res) => {
         }
         ResponseHandler(res,events,200)
     } catch (error) {
-        console.log(error?.message, error?.statusCode || 500);
-        ResponseHandler(res, { message: error?.message }, error?.statusCode || 500);
+        console.log(error );        ResponseHandler(res, { message: error?.message }, error?.statusCode || 500);
 
     }
 })
