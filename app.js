@@ -16,12 +16,7 @@ exp.use(
 );
 
 
-const app = createServer(exp,{
-  cors:{
-    origin:['*'],
-    methods: ["*"] 
-  }
-});
+const app = createServer(exp);
 
 const io = new Server(app);
 
