@@ -24,15 +24,21 @@ const GuestResgister = RequestHandler(async (req, res) => {
     }
     const {access_token,refresh_token}=token
 
-    res.cookie("access_token", access_token, {
-      httpOnly: true,    
-      path:'/',
-      Secure:true   });
-
-    res.cookie("refresh_token", refresh_token, {
-      httpOnly: true,    
-      path:'/',
-      Secure:true  });
+    
+       // *** Set cookies *before* calling ResponseHandler ***
+       res.cookie("access_token", access_token, {
+        httpOnly: true,
+        secure: true, // Important for HTTPS!
+        sameSite: 'none', // Or 'none' with secure: true if needed for CORS
+        path: '/', // Or your path
+      });
+  
+      res.cookie("refresh_token", refresh_token, {
+        httpOnly: true,
+        secure: true, // Important for HTTPS!
+        sameSite: 'none', // Or 'none' with secure: true if needed for CORS
+        path: '/', // Or your path
+      });
 
     ResponseHandler(
       res,

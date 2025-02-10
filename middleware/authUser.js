@@ -5,6 +5,7 @@ import  jwt from 'jsonwebtoken'
 import User from "../model/User.js";
 const authUser = RequestHandler(async (req, res, next) => {
     try {
+        console.log(req?.cookies)
         const token = req?.cookies?.access_token || req?.headers?.authorization?.split('Bearer ')[1];
         if (!token) {
             throw new error('Token not found', 400);
